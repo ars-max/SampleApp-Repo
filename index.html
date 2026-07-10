@@ -3,99 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Development Lab Experiment</title>
-    <!-- Optional: Internal CSS for basic styling -->
+    <title>Simple Login Page</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        header, main, footer { border: 1px solid #ccc; padding: 15px; margin-bottom: 10px; }
-        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f4f4f4; }
-        .form-group { margin-bottom: 15px; }
+        /* Basic reset and page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container centering the form */
+        .login-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 350px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333333;
+            text-align: center;
+        }
+
+        /* Form styling */
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666666;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        /* Button styling */
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Bottom link styling */
+        .forgot-password {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <h1>Welcome to My Lab Assignment</h1>
-        <p>Student Name: <strong>arshad</strong> 
-    </header>
-
-    <!-- Main Content Section -->
-    <main>
-        <!-- Section 1: Headings & Text Formatting -->
-        <section>
-            <h2>Exercise 1: Basic Formatting</h2>
-            <p>This is a standard paragraph element. You can use <strong>bold text</strong> to show emphasis or <em>italicized text</em> for specific terminology.</p>
-        </section>
-
-        <!-- Section 2: Hyperlinks and Images -->
-        <section>
-            <h2>Exercise 2: Multimedia & Links</h2>
-            <p>Visit the official documentation at <a href="https://w3.org" target="_blank">W3C Organization</a>.</p>
-            <p>Below is a placeholder image:</p>
-            <img src="https://placeholder.com" alt="Sample Lab Placeholder Image" width="150">
-        </section>
-
-        <!-- Section 3: Lists -->
-        <section>
-            <h2>Exercise 3: Lists</h2>
-            <h3>Unordered Tools List</h3>
-            <ul>
-                <li>Visual Studio Code</li>
-                <li>Google Chrome DevTools</li>
-                <li>Git Version Control</li>
-            </ul>
-        </section>
-
-        <!-- Section 4: Data Table -->
-        <section>
-            <h2>Exercise 4: Structured Data Table</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Lab No.</th>
-                        <th>Topic Name</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>Introduction to HTML5 Tags</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>02</td>
-                        <td>CSS Layouts and Flexbox</td>
-                        <td>In Progress</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Section 5: Form Elements -->
-        <section>
-            <h2>Exercise 5: Interactive Form</h2>
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="studentEmail">Email Address:</label>
-                    <input type="email" id="studentEmail" name="studentEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="feedback">Lab Feedback:</label>
-                    <textarea id="feedback" name="feedback" rows="3" cols="30"></textarea>
-                </div>
-                <button type="submit">Submit Feedback</button>
-            </form>
-        </section>
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2026 University Web Development Lab. All rights reserved.</p>
-    </footer>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login-endpoint" method="POST">
+            <!-- Username Field -->
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            
+            <!-- Password Field -->
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit">Log In</button>
+            
+            <!-- Extra Utilities -->
+            <a href="#" class="forgot-password">Forgot Password?</a>
+        </form>
+    </div>
 
 </body>
 </html>
